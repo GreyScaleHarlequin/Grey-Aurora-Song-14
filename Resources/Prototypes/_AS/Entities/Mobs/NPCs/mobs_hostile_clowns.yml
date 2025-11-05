@@ -254,6 +254,7 @@
       72: 0.7
       96: 0.5
   - type: DamageStateVisuals
+    rotate: true
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -288,6 +289,11 @@
     rechargeCooldown: 1.5
     rechargeSound:
       path: /Audio/_NF/Effects/silence.ogg
+  - type: Advertise
+    pack: mimehumanoidchatter
+    minimumWait: 30
+    maximumWait: 120
+    nextAdvertisementTime: 10
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -386,6 +392,10 @@
     layers:
     - sprite: _NF/Mobs/Species/Templates/human.rsi
       state: human
+    thresholds:
+      0: Alive
+      40: Critical
+      60: Dead
   - type: Stamina
     critThreshold: 500
   - type: MovementSpeedModifier

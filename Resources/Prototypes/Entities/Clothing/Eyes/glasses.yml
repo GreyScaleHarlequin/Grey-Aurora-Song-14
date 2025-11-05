@@ -63,15 +63,13 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: EyeProtection
+  - type: Tag
+    tags:
+    - SecDogWearable # DeltaV - let Laika wear meson goggles
   - type: IdentityBlocker
     coverage: EYES
   - type: StaticPrice # Frontier
     price: 135 # Frontier
-  - type: Tag
-    tags:
-    - PetWearable
-    - WhitelistChameleon
-    - SecDogWearable # DeltaV - let Laika wear meson goggles
 
 - type: entity
   parent: ClothingEyesBase
@@ -131,8 +129,6 @@
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
   - type: VisionCorrection
   - type: IdentityBlocker
-  - type: StaticPrice
-    price: 500
 
 - type: entity
   parent: ClothingEyesBase
@@ -147,7 +143,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -164,7 +159,6 @@
   - type: Tag
     tags:
     - Sunglasses
-    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear sunglasses
@@ -188,7 +182,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear secglasses
   - type: GuideHelp
@@ -214,7 +207,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -268,10 +260,6 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
-    - type: Tag
-      tags:
-      - PetWearable
-      - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseC3Contraband, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3Contraband added ContrabandClothing as parent

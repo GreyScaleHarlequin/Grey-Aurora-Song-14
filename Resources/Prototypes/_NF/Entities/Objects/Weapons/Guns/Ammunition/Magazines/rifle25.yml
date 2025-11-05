@@ -14,9 +14,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi
     layers:
-    - state: stripe
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
-      color: "#ff0000"
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
@@ -38,16 +37,15 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi
     layers:
-    - state: stripe
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
-      color: "#ff0000"
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
   id: ASMagazineCaselessRifleShort
   name: short magazine (.25 rifle)
-  parent: BaseMagazineCaselessRifle
+  parent: BaseMagazineCaselessRifleShort
   components:
   - type: Tag
     tags:
@@ -58,9 +56,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag_short.rsi
     layers:
-    - state: stripe
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
-      color: "#ff0000"
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 #endregion .25 Rifle mags | Aurora
@@ -114,7 +111,7 @@
 - type: entity
   id: MagazineCaselessRifleShortRubber
   name: short magazine (.25 rifle, rubber) # updated name to be consistent | Aurora
-  parent: BaseMagazineCaselessRifle
+  parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider
     proto: NFCartridgeRifle25Rubber

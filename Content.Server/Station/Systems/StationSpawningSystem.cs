@@ -1,7 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
-using Content.Server.Mind;
+using Content.Server.Mind.Commands;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
@@ -54,7 +54,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly BankSystem _bank = default!; // Frontier
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!; // Frontier
     [Dependency] private readonly TransformSystem _xformSystem = default!; // Frontier
-    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
@@ -130,8 +129,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (prototype?.JobEntity != null)
         {
             DebugTools.Assert(entity is null);
-            var jobEntity = Spawn(prototype.JobEntity, coordinates);
-            _mindSystem.MakeSentient(jobEntity);
+            var jobEntity = EntityManager.SpawnEntity(prototype.JobEntity, coordinates);
+            MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
 
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)

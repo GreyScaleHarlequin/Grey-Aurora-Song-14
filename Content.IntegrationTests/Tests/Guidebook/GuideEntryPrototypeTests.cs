@@ -24,7 +24,7 @@ public sealed class GuideEntryPrototypeTests
         var parser = client.ResolveDependency<DocumentParsingManager>();
         var prototypes = protoMan.EnumeratePrototypes<GuideEntryPrototype>().ToList();
 
-        foreach (var proto in prototypes.Take(5)) //Augh
+        foreach (var proto in prototypes)
         {
             await client.WaitAssertion(() =>
             {
@@ -34,7 +34,6 @@ public sealed class GuideEntryPrototypeTests
             });
 
             // Avoid styleguide update limit
-
             await client.WaitRunTicks(1);
         }
 
