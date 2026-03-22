@@ -27,4 +27,10 @@ public sealed partial class ToggleableVisualsComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();
+
+    /// <summary>
+    /// Layers to add to the sprite of the player that is wielding this entity (while the component is toggled on).
+    /// </summary>
+    [DataField] // AuroraSong addition, not yet implemented
+    public Dictionary<HandLocation, List<PrototypeLayerData>> WieldedVisuals = new ();
 }

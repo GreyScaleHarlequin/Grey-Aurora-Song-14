@@ -8,3 +8,81 @@
     colorOptions:
       - "#fc7703"
     blockHacking: true
+
+- type: entity
+  name: e-glaive
+  parent: [BaseMeleeWeaponEnergy]
+  id: EnergyGlaive
+  components:
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+    wieldedVisuals:
+      left:
+        - state: wielded-inhand-left-blade
+        - shader: unshaded
+      right:
+      - state: wielded-inhand-right-blade
+        shader: unshaded
+  - type: StaticPrice
+    price: 6000
+  - type: Sprite
+    sprite: _AS/Objects/Weapons/Melee/e_glaive.rsi
+    layers:
+      - state: eglaive
+      - state: eglaive-blade
+        color: "#00ffff"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: Item
+    sprite: _AS/Objects/Weapons/Melee/e_glaive.rsi
+  - type: ItemToggle
+    onUse: false
+    onActivate: true
+    soundActivate: /Audio/Weapons/ebladeon.ogg
+    params:
+      volume: 3
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/ebladeswing.ogg
+      params:
+        volume: 3
+        variation: 0.250
+    activatedDamage:
+      types:
+        Slash: 12
+        Heat: 12
+        Structure: 5
+    deactivatedDamage:
+      types:
+        Blunt: 12
+        Structure: 2
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+      params:
+        volume: 3
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.7
+    - type: Execution
+      doAfterDuration: 3.0
+  - type: Wieldable
+    wieldSound: null
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.5
+    angle: 100
+    damage:
+      types:
+        Blunt: 12
+        Structure: 2

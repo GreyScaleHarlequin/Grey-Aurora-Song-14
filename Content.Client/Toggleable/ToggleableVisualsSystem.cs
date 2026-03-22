@@ -27,7 +27,7 @@ public sealed class ToggleableVisualsSystem : VisualizerSystem<ToggleableVisuals
     {
         base.Initialize();
         SubscribeLocalEvent<ToggleableVisualsComponent, GetInhandVisualsEvent>(OnGetHeldVisuals,
-            after: [typeof(ItemSystem)]);
+            after: [typeof(ItemSystem)]); //TODO: Need to either write a new function to handle wielded instances, or generify the existing one and use it for both. - GreyScaleHarlequin
         SubscribeLocalEvent<ToggleableVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals,
             after: [typeof(ClientClothingSystem)]);
     }
@@ -137,4 +137,5 @@ public sealed class ToggleableVisualsSystem : VisualizerSystem<ToggleableVisuals
             args.Layers.Add((key, layer));
         }
     }
+
 }

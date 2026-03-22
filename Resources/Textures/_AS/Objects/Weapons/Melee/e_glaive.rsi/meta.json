@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by GreyScaleHarlequin (Github) for AuroraSong14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "eglaive"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+	{
+      "name": "eglaive-blade",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "inhand-left-blade",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "inhand-right-blade",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+        "name": "wielded-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "wielded-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "wielded-inhand-right-blade",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+        "name": "wielded-inhand-left-blade",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ],
+		[
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
