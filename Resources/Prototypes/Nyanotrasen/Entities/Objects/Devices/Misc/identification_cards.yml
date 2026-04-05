@@ -61,4 +61,6 @@
     - state: default
     - sprite: _DV/Objects/Misc/id_cards.rsi
       state: nyanomantis
+  - type: PresetIdCard
+    job: Mercenary
 
