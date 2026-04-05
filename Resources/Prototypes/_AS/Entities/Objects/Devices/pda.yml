@@ -639,3 +639,19 @@
     accentHColor: "#8c1c54"
   - type: Pda
     id: ForensicMantisIDCard
+  - type: Icon
+    sprite: _DEN/Objects/Devices/pda.rsi
+    state: pda-mantis
+  - type: Sprite
+    sprite: _DEN/Objects/Devices/pda.rsi
+    layers:
+    - state: "pda-mantis"
+      map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "mantis-light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "mantis-id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
