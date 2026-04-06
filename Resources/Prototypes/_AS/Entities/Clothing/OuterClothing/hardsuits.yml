@@ -1136,3 +1136,39 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingOuterHardsuitBaseNF, ArcadianHighContraband]
+  id: ClothingOuterHardsuitTsukiArcadian
+  name: tsuki hardsuit
+  description: A hulking armoured hardsuit, sporting pauldrons that form a crescent shell around the head and shoulders alongside heavy clam-shell gauntlets. The monocular visor lense gleams menacingly.
+  components:
+  - type: Sprite
+    sprite: _AS/Clothing/OuterClothing/Hardsuits/tsuki.rsi
+  - type: Clothing
+    sprite: _AS/Clothing/OuterClothing/Hardsuits/tsuki.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING  #todo - make sprites for vox and harpy bodies
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.55
+        Caustic: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.1
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetTsukiArcadian
+  - type: Tag
+    tags:
+    - Hardsuit

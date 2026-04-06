@@ -13,3 +13,4 @@ contraband-examine-text-Class3MobCreature = [color=magenta]This creature is deem
 contraband-examine-text-Class3MobConstruct = [color=magenta]This intelligence is deemed too dangerous to be contained, and is considered as class 3 contraband when in captivity. Keeping it in confinement, alive or dead, is illegal.[/color]
 # Aurora
 contraband-examine-text-Class2Unregistered = [color=red]This item is considered class 2 unregistered contraband, please either turn it in to the authorities or have it registered with them.[/color]
+contraband-examine-text-Class3Arcadian = [color=red]This item carries serial numbers and markers that indicate it is a piece of Arcadian technology, and is considered class 3 contraband. Use is highly illegal.[/color]

@@ -14,3 +14,51 @@
   components:
   - type: Contraband
     allowedDepartments: [ ColonialCommand, Command ]
+
+# Arcadian Contraband entities
+
+- type: contrabandSeverity
+  id: Class3Arcadian
+  examineText: contraband-examine-text-Class3Arcadian
+
+- type: entity
+  id: BaseArcadianContraband
+  parent: BaseC3ContrabandUnredeemable
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class3Arcadian
+    allowedDepartments: [ ]
+
+- type: entity
+  id: ArcadianLowContraband
+  parent: BaseArcadianContraband
+  abstract: true
+  components:
+  - type: Contraband
+    turnInValues:
+      FrontierUplinkCoin: 1
+      ExchangeCoin: 1 # AS
+      Doubloon: 1
+
+- type: entity
+  id: ArcadianMedContraband
+  parent: BaseArcadianContraband
+  abstract: true
+  components:
+  - type: Contraband
+    turnInValues:
+      FrontierUplinkCoin: 2
+      ExchangeCoin: 2 # AS
+      Doubloon: 2
+
+- type: entity
+  id: ArcadianHighContraband
+  parent: BaseArcadianContraband
+  abstract: true
+  components:
+  - type: Contraband
+    turnInValues:
+      FrontierUplinkCoin: 3
+      ExchangeCoin: 3 # AS
+      Doubloon: 3
