@@ -1,0 +1,11 @@
+﻿- type: startingGear
+  id: ArcadianCalamitax
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryArcadiaTac
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesArcadiaCombat
+    neck: ClothingNeckIFFOrange
+    mask: ClothingMaskArcadia
+    belt: ClothingBeltArcadia
+    back: ClothingBackpackArcadia
+    outerClothing: ClothingOuterHardsuitTsukiArcadian
