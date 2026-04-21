@@ -49,14 +49,14 @@ public sealed partial class IdCardConsoleComponent : Component
         "Brig",
         "Captain",
         "HeadOfPersonnel", // Aurora's Song - moved up, alphabetic w.r.t. "Colonial Representative"
-        //"Cargo",
+        "Cargo",
         //"Chapel",
         //"Chemistry",
-        //"ChiefMedicalOfficer",
         "Command",
         "Corpsman", // Frontier and Aurora's Song, changed to Corpsman and moved down
         //"Cryogenics",
         "Detective", // Frontier: moved into alphabetical order
+        "ChiefMedicalOfficer", // Aurora's Song - moved down, alphabetic w.r.t. "Director of Care"
         "Engineering",
         "External",
         //"Hydroponics",

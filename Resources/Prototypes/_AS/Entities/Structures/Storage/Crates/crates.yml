@@ -13,7 +13,7 @@
     access: [["NuclearOperative"], ["SyndicateAgent"]]
 
 - type: entity
-  parent: [ BaseStructureIndestructible, CrateBaseSecure ]
+  parent: [ BaseStructureIndestructible, CrateBaseSecure, BaseC2ContrabandSecure ]
   id: ASCrateSuppliesLocked
   name: locked supplies crate
   suffix: Locked
@@ -57,8 +57,8 @@
 
 - type: entity
   parent: CrateSecgear
-  id: ASCrateSLEBrigmedic
-  name: brigmedic crate
+  id: ASCrateSLECorpsman
+  name: corpsman crate
   components:
   - type: Icon
     sprite: _AS/Structures/Storage/Crates/sle_brigmed.rsi
