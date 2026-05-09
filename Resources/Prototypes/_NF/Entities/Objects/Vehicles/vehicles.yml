@@ -391,8 +391,10 @@
     tags:
       - Wringer
       - DoorBumpOpener
-  - type: Drink
+  - type: Edible  # Aurora's Song - Convert to edible from Drink
+    edible: Drink
     solution: bucket
+    destroyOnEmpty: false # Aurora's Song: DO NOT EAT IT
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

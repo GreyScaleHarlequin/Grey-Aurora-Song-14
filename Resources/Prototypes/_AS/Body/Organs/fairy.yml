@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -55,8 +55,10 @@
       groups:
         - id: Food
           rateModifier: 0.1
+          scaleModifier: 4
         - id: Drink
           rateModifier: 0.1
+          scaleModifier: 4
 
 
 - type: entity
@@ -111,9 +113,13 @@
     metabolizerTypes: [ Fairy ]
     groups:
     - id: Medicine
+      rateModifier: 0.1
     - id: Cryogenic # Frontier
+      rateModifier: 0.1
     - id: Poison
+      rateModifier: 0.1
     - id: Narcotic
+      scaleModifier: 10 # because low rate mods stop narcotics from accumulating correctly presently, we use scale
 
 - type: entity
   id: OrganFairyLiver

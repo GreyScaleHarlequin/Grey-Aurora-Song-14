@@ -1,35 +1,47 @@
 using Content.Shared._Floof.Consent;
-using Content.Shared.EntityEffects;
+using Content.Shared.EntityConditions;
 using Content.Shared.Mind;
 using Robust.Shared.Prototypes;
+using Content.Shared.Mind.Components;
 
 namespace Content.Shared._AS.Consent.EntityEffects;
 
-public sealed partial class Consent : EntityEffectCondition
+public sealed class ConsentEntityConditionSystem
+    : EntityConditionSystem<MindContainerComponent, Consent>
 {
-    [DataField(required: true)]
-    public List<ProtoId<ConsentTogglePrototype>> EffectTypes = default!;
+    [Dependency] private readonly SharedConsentSystem _consent = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
-    public override bool Condition(EntityEffectBaseArgs args)
+    protected override void Condition(Entity<MindContainerComponent> ent, ref EntityConditionEvent<Consent> args)
     {
-        if (!args.EntityManager.System<SharedMindSystem>().TryGetMind(args.TargetEntity, out _, out var mind))
-            return false;
+        args.Result = false;
+
+        if (!_mind.TryGetMind(ent.Owner, out _, out var mind))
+            return;
 
         if (mind.Session is not { } session)
-            return false;
+            return;
 
-        if (!args.EntityManager.System<SharedConsentSystem>().TryGetConsent(session.UserId, out var settings))
-            return false;
+        if (!_consent.TryGetConsent(session.UserId, out var settings))
+            return;
 
-        foreach (var effect in EffectTypes)
+        foreach (var effect in args.Condition.EffectTypes)
         {
-            if (settings is not null && args.EntityManager.System<SharedConsentSystem>().HasConsent(settings, effect))
-                return true;
+            if (_consent.HasConsent(settings, effect))
+            {
+                args.Result = true;
+                return;
+            }
         }
-        return false;
     }
+}
 
-    public override string GuidebookExplanation(IPrototypeManager prototype)
+public sealed partial class Consent : EntityConditionBase<Consent>
+{
+    [DataField(required: true)]
+    public List<ProtoId<ConsentTogglePrototype>> EffectTypes;
+
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
         return string.Empty;
     }

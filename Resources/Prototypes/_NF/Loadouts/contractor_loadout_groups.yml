@@ -8,6 +8,8 @@
   - ContractorClothingUniformJumpsuitMilitaryContractorTac
   - ContractorClothingUniformJumpsuitAtmos
   - ContractorClothingUniformJumpskirtAtmos
+  - ContractorClothingUniformFlightsuitAtmos # Aurora's Song - Flightsuits
+  - ContractorClothingUniformFlightskirtAtmos # Aurora's Song - Flightsuits
   - ContractorClothingUniformMantisLoincloth # Aurora's Song - Mantis drip
   - ContractorClothingUniformMantisDark # Aurora's Song - Mantis drip
   - ContractorClothingUniformMantisOrnate # Aurora's Song - Mantis drip
@@ -144,7 +146,7 @@
   - ContractorClothingUniformJumpskirtResearchDirector
   - ContractorClothingUniformJumpsuitSeniorEngineer
   - ContractorClothingUniformJumpskirtSeniorEngineer
-  - ContractorClothingUniformJumpsuitChiefEngineerNT
+  #- ContractorClothingUniformJumpsuitChiefEngineerNT Aurora Song: Removed in upstream
   - ContractorClothingUniformJumpsuitChiefEngineer
   - ContractorClothingUniformJumpskirtChiefEngineer
   - ContractorClothingUniformJumpsuitChiefEngineerTurtle

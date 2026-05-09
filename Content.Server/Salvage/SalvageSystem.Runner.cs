@@ -4,7 +4,6 @@ using Content.Server._NF.Salvage; // Aurora's Song
 using Content.Server.Salvage.Expeditions;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
-using Content.Server.Station.Components;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
@@ -26,7 +25,9 @@ using Content.Server._NF.Salvage.Expeditions;
 using Content.Shared.Salvage; // Aurora's Song
 using Content.Shared.Buckle; // Aurora's Song
 using Content.Shared.Buckle.Components; // Aurora's Song
+using Content.Shared.Damage.Systems; // Aurora's Song
 using Content.Shared.Implants; // Aurora's Song
+using Content.Shared.Station.Components; // Aurora's Song
 using Robust.Server.Player; // Coyote
 using Robust.Shared.Enums; // Frontier
 
@@ -194,6 +195,22 @@ public sealed partial class SalvageSystem
             if (xform.MapUid == ev.FromMapUid)
                 return;
         }
+
+        FindPlayers(ev.FromMapUid.Value, null, out var players); // Begin Aurora's Song | If there is somehow still players on the map when its being deleted throw them into space.
+        if (players.Count > 0)
+        {
+            foreach (var entity in players)
+            {
+                Log.Debug($"Trying to warp {entity}");
+                if (!_mapSystem.TryGetMap(_gameTicker.DefaultMap, out var mapUid))
+                {
+                    Log.Error($"Could not get DefaultMap EntityUID, entity {entity} may be deleted.");
+                    break;
+                }
+                var fallback = new EntityCoordinates(mapUid.Value, _random.NextVector2(2000f, 2000f));
+                SafetyWarp(entity, fallback);
+            }
+        } // End Aurora's Song
 
         // Last shuttle has left so finish the mission.
         QueueDel(ev.FromMapUid.Value);
@@ -580,13 +597,6 @@ public sealed partial class SalvageSystem
             if (HasComp<ActiveNPCComponent>(playerQUID) || HasComp<NFSalvageMobRestrictionsComponent>(playerQUID))
                 continue;
 
-            // Hostile ghost role. Continue
-            if (TryComp(playerQUID, out NpcFactionMemberComponent? npcFaction))
-            {
-                var hostileFactions = npcFaction.HostileFactions;
-                if (hostileFactions.Contains("NanoTrasen")) // TODO: move away from hardcoded faction
-                    continue;
-            }
             players.Add(playerQUID);
         }
     }
