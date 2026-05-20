@@ -1174,8 +1174,12 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING  #todo - make sprites for vox and harpy bodies
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-VOX
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:

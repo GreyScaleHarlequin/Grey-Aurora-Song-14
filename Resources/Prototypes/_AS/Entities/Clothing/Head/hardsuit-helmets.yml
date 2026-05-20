@@ -1187,6 +1187,11 @@
     clothingVisuals:
       head:
       - state: equipped-head
+      head-vox:
+      - state: equipped-head-VOX
+  - type: HideLayerClothing
+    slots:
+    - HeadTop
   - type: Armor
     modifiers:
       coefficients:

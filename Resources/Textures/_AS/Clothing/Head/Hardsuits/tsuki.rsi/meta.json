@@ -13,6 +13,10 @@
         {
             "name": "equipped-head",
             "directions": 4
+        },
+        {
+            "name": "equipped-head-VOX",
+            "directions": 4
         }
     ]
 }
