@@ -1,0 +1,58 @@
+﻿- type: entity
+  abstract: true
+  id: ASArmourTierOne
+  components:
+  - type: Armor # AS - At Tier One we don't want there to be any Damage Threshold, just percentile reductions.
+    modifiers:  # Also remember that all these modifiers are the expected "upper bound" for the tier, so they should be impactful but not overwhelming.
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.95
+        Caustic: 0.95
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.85
+
+- type: entity
+  abstract: true
+  id: ASArmourTierTwo
+  components:
+  - type: Armor # AS - At Tier Two we want to start giving some flat reductions, which even when small will result in much more durable
+    modifiers:  # mitigation of damage in general. It really should not go very high at this tier though, since it applies both the
+      flatReductions: # flatReductions and also the coefficients
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.95
+        Caustic: 0.95
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+
+- type: entity
+  id: exampleArmourT1
+  parent: [ASArmourTierOne, ClothingOuterBaseMedium]
+  name: T1 test vest
+  description: A test vest with Tier One armor values.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+
+- type: entity
+  id: exampleArmourT2
+  parent: [ASArmourTierTwo, ClothingOuterBaseMedium]
+  name: T2 test vest
+  description: A test vest with Tier Two armor values.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
