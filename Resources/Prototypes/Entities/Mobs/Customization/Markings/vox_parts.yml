@@ -1,7 +1,7 @@
 - type: marking
   id: VoxBeak
   bodyPart: Snout
-  forcedColoring: true
+  forcedColoring: false # Aurora's Song - changed true to false
   groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -16,7 +16,7 @@
   # The cere is the base of the top part of the beak, the cere on this beak, is a square.
   id: VoxBeakSquareCere
   bodyPart: Snout
-  forcedColoring: true
+  forcedColoring: false # Aurora's Song - changed true to false
   groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -30,7 +30,7 @@
 - type: marking
   id: VoxBeakShaved
   bodyPart: Snout
-  forcedColoring: true
+  forcedColoring: false # Aurora's Song - changed true to false
   groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -44,7 +44,7 @@
 - type: marking
   id: VoxBeakHooked
   bodyPart: Snout
-  forcedColoring: true
+  forcedColoring: false # Aurora's Song - changed true to false
   groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -58,8 +58,8 @@
 - type: marking
   id: VoxLArmScales
   bodyPart: LArm
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_arm
@@ -72,8 +72,8 @@
 - type: marking
   id: VoxLLegScales
   bodyPart: LLeg
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_leg
@@ -86,8 +86,8 @@
 - type: marking
   id: VoxRArmScales
   bodyPart: RArm
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_arm
@@ -100,8 +100,8 @@
 - type: marking
   id: VoxRLegScales
   bodyPart: RLeg
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_leg
@@ -114,8 +114,8 @@
 - type: marking
   id: VoxRHandScales
   bodyPart: RHand
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_hand
@@ -128,8 +128,8 @@
 - type: marking
   id: VoxLHandScales
   bodyPart: LHand
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_hand
@@ -142,8 +142,8 @@
 - type: marking
   id: VoxLFootScales
   bodyPart: LFoot
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_foot
@@ -156,8 +156,8 @@
 - type: marking
   id: VoxRFootScales
   bodyPart: RFoot
-  forcedColoring: true
-  groupWhitelist: []    # Aurora's Song -- [Vox]>[]
+  forcedColoring: false # Aurora's Song - changed true to false
+  groupWhitelist: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_foot

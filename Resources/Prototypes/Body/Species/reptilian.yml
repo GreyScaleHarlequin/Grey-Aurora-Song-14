@@ -24,7 +24,7 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 1
+      limit: 2 # Aurora's Song : 1>2
       required: false
     enum.HumanoidVisualLayers.LArm:
       limit: 4 # Aurora: 2>4

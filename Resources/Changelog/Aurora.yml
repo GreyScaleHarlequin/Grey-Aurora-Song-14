@@ -1421,3 +1421,12 @@ Entries:
   id: 9539
   time: '2026-06-15T20:48:15.0000000+00:00'
   url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1151
+- author: AvianMaiden
+  changes:
+    - type: Fix
+      message: Vox are no longer forced to have feather-colored arms and legs
+    - type: Add
+      message: Vox can now have any color scutes they desire.
+  id: 9540
+  time: '2026-06-17T17:35:52.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1153
