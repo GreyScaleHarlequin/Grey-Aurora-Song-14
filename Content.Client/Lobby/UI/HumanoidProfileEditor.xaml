@@ -156,7 +156,7 @@
         </BoxContainer>
         <!-- Right side -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <profile:ProfilePreviewSpriteView Name="SpriteView" Scale="8 8" Margin="" SizeFlagsStretchRatio="1" SetWidth="256" /> <!-- Aurora's Song | add SetWidth="256" -->
+            <profile:ProfilePreviewSpriteView Name="SpriteView" Scale="8 8" Margin="4" SizeFlagsStretchRatio="1" SetWidth="256" /> <!-- Aurora's Song | add SetWidth="256" -->
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5">
                 <Button Name="SpriteRotateLeft" Text="◀" StyleClasses="OpenRight" />
                 <cc:VSeparator Margin="2 0 3 0" />
