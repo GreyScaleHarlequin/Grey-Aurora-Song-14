@@ -23,9 +23,11 @@
 # - Tiers should have a general baseline of performance(probably commented rather than preset, since you can't remove components from children)
 # - Tiers determine how rare something should be in spawning
 
+#region NonVac armour tiers
 - type: entity
   abstract: true
   id: ASArmourNonVacTierOne # Low profile civilian protection, like duraweave jackets
+  suffix: T1 Non Vac
   components:
   - type: Armor
     modifiers:
@@ -39,13 +41,32 @@
 
 - type: entity
   abstract: true
-  id: ASArmourNonVacTierTwo # Non concealable civilian protection, light kevlar and the like
+  id: ASArmourNonVacTierTwo # Non-concealable civilian protection, light kevlar and the like
+  suffix: T2 Non Vac
   components:
   - type: Armor
     modifiers:
       coefficients: # additional damage types commented out but left there to show what should be expected at this tier and class of armour
         Blunt: 0.8
         Slash: 0.8
+#endregion NonVac armour tiers
+
+#region SoftSuit armour tiers
+- type: entity
+  abstract: true
+  id: ASArmourSoftSuitTierOne # Emergency EVA kit is the best example, not very manoeuvrable but provides some protection against damage and vacuum
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.9
+        Caustic: 0.9
+  - typer: ClothingSpeedModifier
+    sprintModifier: 0.8
 
 - type: entity
   abstract: true
@@ -97,7 +118,7 @@
 
 - type: entity
   id: exampleArmourT2
-  parent: [ASArmourTierTwo, ClothingOuterBaseMedium]
+  parent: [ASArmourNonVacTierTwo, ClothingOuterBaseMedium]
   name: T2 test vest
   description: A test vest with Tier Two armor values.
   components:
