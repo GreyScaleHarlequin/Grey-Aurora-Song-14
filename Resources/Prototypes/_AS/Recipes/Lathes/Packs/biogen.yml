@@ -13,3 +13,9 @@
   - ASBioGenTreeShadowCube
   - ASBioGenTreeLightCube
   - ASBioGenPompomCube
+
+- type: latheRecipePack
+  id: ASBioGenSeedsStatic
+  recipes:
+  - ASBioGenPomegranateSeeds
+  - ASBioGenPompomBushSeeds

@@ -280,6 +280,18 @@ namespace Content.Server.Stack
         #endregion
         #region Event Handlers
 
+        // Frontier Start - Cherry-picked from ss14#32938 courtesy of Ilya246
+        protected override void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message)
+        {
+            // digital ghosts shouldn't be allowed to split stacks
+            if (!(message.Actor is { Valid: true } user))
+                return;
+
+            var amount = message.Amount;
+            UserSplit(ent, user, amount); // Aurora's Song - Convert to Entity<comp>
+        }
+        // Frontier End
+
         /// <inheritdoc />
         protected override void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
         {

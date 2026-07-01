@@ -342,8 +342,6 @@
     borderColor: "#d7d7d0"
   - type: Icon
     state: pda-cook
-  - type: ReplacementAccent # for random sentience event
-    accent: italian
 
 - type: entity
   parent: BasePDA
@@ -472,6 +470,14 @@
       whitelist:
         components:
         - Cartridge
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge # Aurora's Song
+    - NanoTaskCartridge # Aurora's Song
+    - NewsReaderCartridge
+    - BountyContractsCartridge # Aurora's Song
+    - AstroNavCartridge # Aurora's Song
+    - NanoChatCartridge # Aurora's Song
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -537,6 +543,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - BountyContractsCartridge # Aurora's Song
     - AstroNavCartridge
     - NanoChatCartridge # Auroras Song
 
@@ -1645,6 +1652,14 @@
         type: HealthAnalyzerBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ChameleonPDA
+  id: ChameleonAgentPDA
+  suffix: Chameleon, Agent ID
+  components:
+  - type: Pda
+    id: AgentIDCard
 
 - type: entity
   parent: BaseWidePDA

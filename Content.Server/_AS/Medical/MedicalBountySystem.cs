@@ -14,6 +14,7 @@ using Content.Server._NF.Traits.Assorted;
 using Content.Shared._AS.Medical;
 using Content.Shared._AS.Medical.Prototypes;
 using Content.Shared._NF.Bank.BUI;
+using Content.Shared.Access.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -22,6 +23,8 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
+using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Power;
@@ -40,21 +43,22 @@ namespace Content.Server._AS.Medical;
 /// </summary>
 public sealed partial class ASMedicalBountySystem : EntitySystem
 {
-    [Dependency] IAdminLogManager _adminLog = default!;
-    [Dependency] IRobustRandom _random = default!;
-    [Dependency] IPrototypeManager _proto = default!;
-    [Dependency] AudioSystem _audio = default!;
-    [Dependency] BankSystem _bank = default!;
-    [Dependency] BloodstreamSystem _bloodstream = default!;
-    [Dependency] DamageableSystem _damageable = default!;
-    [Dependency] HandsSystem _hands = default!;
-    [Dependency] PopupSystem _popup = default!;
-    [Dependency] PowerReceiverSystem _power = default!;
-    [Dependency] SharedAppearanceSystem _appearance = default!;
-    [Dependency] SharedContainerSystem _container = default!;
-    [Dependency] StackSystem _stack = default!;
-    [Dependency] TransformSystem _transform = default!;
-    [Dependency] UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly BankSystem _bank = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
 
     private List<ASMedicalBountyPrototype> _cachedPrototypes = new();
 
@@ -70,6 +74,7 @@ public sealed partial class ASMedicalBountySystem : EntitySystem
         // Aurora Song: Subscribe to bounty component events
         SubscribeLocalEvent<ASMedicalBountyComponent, ComponentStartup>(InitializeMedicalBounty);
         SubscribeLocalEvent<ASMedicalBountyComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<ASMedicalBountyComponent, ExaminedEvent>(OnExamined);
 
         // Aurora Song: Subscribe to redemption component events
         SubscribeLocalEvent<ASMedicalBountyRedemptionComponent, RedeemASMedicalBountyMessage>(RedeemMedicalBounty);
@@ -186,6 +191,14 @@ public sealed partial class ASMedicalBountySystem : EntitySystem
             !TryComp<DamageableComponent>(bountyUid, out var damageable))
         {
             _popup.PopupEntity(Loc.GetString("as-medical-bounty-redemption-fail-no-bounty"), uid);
+            _audio.PlayPvs(component.DenySound, uid);
+            return;
+        }
+
+        // Check if medical bounty is Medical only
+        if (medicalBounty.MedicalOnly && !_access.IsAllowed(ev.Actor, uid))
+        {
+            _popup.PopupEntity(Loc.GetString("as-medical-bounty-redemption-fail-not-medic"), uid);
             _audio.PlayPvs(component.DenySound, uid);
             return;
         }
@@ -320,6 +333,10 @@ public sealed partial class ASMedicalBountySystem : EntitySystem
             return new ASMedicalBountyRedemptionUIState(ASMedicalBountyRedemptionStatus.NoBounty, 0, paidToStation);
         }
 
+        // Deny accepting if patient is only redeemable by medics
+        if (medicalBounty.MedicalOnly && !_access.IsAllowed(actor, uid))
+            return new ASMedicalBountyRedemptionUIState(ASMedicalBountyRedemptionStatus.MedicalOnly, 0, paidToStation);
+
         // Check that the entity inside is sufficiently healed.
         var bounty = medicalBounty.Bounty;
         if (damageable.TotalDamage > bounty.MaximumDamageToRedeem)
@@ -348,5 +365,15 @@ public sealed partial class ASMedicalBountySystem : EntitySystem
         }
 
         return new ASMedicalBountyRedemptionUIState(ASMedicalBountyRedemptionStatus.Valid, int.Max(bountyPayout, 0), paidToStation);
+    }
+
+    private void OnExamined(Entity<ASMedicalBountyComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("as-medical-bounty-examine", ("user", Identity.Entity(ent, EntityManager))));
+
+        if (!ent.Comp.MedicalOnly)
+            return;
+
+        args.PushMarkup(Loc.GetString("as-medical-bounty-examine-medic-only"));
     }
 }

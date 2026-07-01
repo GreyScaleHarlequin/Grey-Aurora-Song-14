@@ -467,11 +467,13 @@
 - type: loadoutGroup
   id: ContractorShoes
   name: loadout-group-contractor-shoes
+  minLimit: 0
   loadouts:
   - ContractorClothingShoesColorBlack
   - ContractorClothingShoesMantisAiry  # Aurora Song - Mantis drip merge
   - ContractorClothingShoesMantisDark  # Aurora Song - Mantis drip merge
   - ContractorClothingShoesMantisOrnate  # Aurora Song - Mantis drip merge
+  - ContractorClothingProtectorsFeet # Aurora's Song | Foot protectors
   - ContractorClothingShoesClothwrap
   - ContractorClothingShoesTourist
   - ContractorClothingShoesBootsSalvage

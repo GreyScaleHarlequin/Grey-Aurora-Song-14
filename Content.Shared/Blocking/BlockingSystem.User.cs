@@ -52,6 +52,9 @@ public sealed partial class BlockingSystem
         if (!TryComp<DamageableComponent>(item, out var dmgComp))
             return;
 
+        if (!_toggle.IsActivated(component.BlockingItem.Value)) // Goobstation
+            return;
+
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
         blockFraction = Math.Clamp(blockFraction, 0, 1);
         _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);

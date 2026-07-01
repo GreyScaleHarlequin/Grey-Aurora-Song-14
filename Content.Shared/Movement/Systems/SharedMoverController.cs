@@ -623,6 +623,14 @@ public abstract partial class SharedMoverController : VirtualController
         var position = _mapSystem.LocalToTile(xform.GridUid.Value, grid, xform.Coordinates);
         var soundEv = new GetFootstepSoundEvent(uid);
 
+        // Aurora's Song: Moved Den changes to here, and reworked to fix silent footstepping.
+        if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
+            HasComp<NaturalFootstepSoundsComponent>(shoes))
+        {
+            haveShoes = false;
+        }
+        // End Aurora's Song
+
         // If the coordinates have a FootstepModifier component
         // i.e. component that emit sound on footsteps emit that sound
         var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(xform.GridUid.Value, grid, position);
@@ -637,8 +645,7 @@ public abstract partial class SharedMoverController : VirtualController
                 return true;
             }
 
-            if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
-                FootstepModifierQuery.TryComp(maybeFootstep, out var footstep))
+            if (FootstepModifierQuery.TryComp(maybeFootstep, out var footstep)) // Aurora's Song, pulled shoe searching out to code above
             {
                 sound = footstep.FootstepSoundCollection;
                 return sound != null;

@@ -68073,7 +68073,7 @@ entities:
     - type: Transform
       pos: 5.5,22.5
       parent: 2
-- proto: MachineMedicalBountyRedemption
+- proto: ASMachineMedicalBountyRedemption
   entities:
   - uid: 9826
     components:

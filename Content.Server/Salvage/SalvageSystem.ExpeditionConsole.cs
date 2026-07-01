@@ -27,7 +27,7 @@ public sealed partial class SalvageSystem
     [Dependency] private readonly SalvageSystem _salvage = default!; // Frontier
 
     private const float ShuttleFTLMassThreshold = 50f; // Frontier
-    private const float ShuttleFTLRange = 150f; // Frontier
+    private const float ShuttleFTLRange = 50f; // Frontier, Aurora's Song 150>50
 
     private void OnSalvageClaimMessage(EntityUid uid, SalvageExpeditionConsoleComponent component, ClaimSalvageMessage args)
     {
