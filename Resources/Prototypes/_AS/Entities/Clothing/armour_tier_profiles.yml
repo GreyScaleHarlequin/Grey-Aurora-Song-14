@@ -1,4 +1,53 @@
-﻿- type: entity
+﻿### /Summary/
+# The Armoury Tier system needs to be broken up into at least 6 tiers, these tiers need to be defined based on not only the values of defences being applied
+# but also the number of defences there actually are. The two tiers below are non-demonstrative of this, but serve to show what we mean by "tiers" for armours.
+#
+# To that end I submit that armours should be tiered based on five criteria:
+# - Criterion One: Number of defensive values, a suit of armour having defense against two damage types should not be treated the same as a suit that has five
+# even if those five damage types are all quite low compared to higher ones on the two defenses of the former.
+#
+# - Criterion Two: The quality of defenses, to use the prior example a suit with two damage types at 90% resist and a suit with five damage types at 20% resist
+# have vastly different use cases, and even then it depends on what damage types are being shielded. A vest that does 90% heat and caustic resist is vastly
+# less useful against common threats than a vest with 90% Piercing and Blunt, as example.
+#
+# - Criterion Three: Special characteristics. An armoured vest that provides no vacuum sealing is worth less than a hardsuit that protects you from vacuum
+# and provides breathing support.
+#
+# - Criterion Four: Flat mitigations, as seen in the below (though non demonstrative) examples, suits should start to have flat mitigations in order to specialise
+# their performance profiles as well as more clearly defined how well made/protective a suit is
+#
+# - Criterion Five: Legality/accessibility, if it's going to be either rare or illegal this has to be considered alongside the other attributes. A vest that is
+# only moderately protective but illegal to possess shouldn't be as high tier as say, very protective and legal to have armour.
+#
+# # Function of the Tier system
+# - Tiers should have a general baseline of performance(probably commented rather than preset, since you can't remove components from children)
+# - Tiers determine how rare something should be in spawning
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacTierOne # Low profile civilian protection, like duraweave jackets
+  components:
+  - type: Armor
+    modifiers:
+      coefficients: # additional damage types commented out but left there to show what should be expected at this tier and class of armour
+        Blunt: 0.9
+        Slash: 0.9
+#        Piercing: 0.9
+#        Heat: 0.9
+#        Radiation: 0.9
+#        Caustic: 0.9
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacTierTwo # Non concealable civilian protection, light kevlar and the like
+  components:
+  - type: Armor
+    modifiers:
+      coefficients: # additional damage types commented out but left there to show what should be expected at this tier and class of armour
+        Blunt: 0.8
+        Slash: 0.8
+
+- type: entity
   abstract: true
   id: ASArmourTierOne
   components:
