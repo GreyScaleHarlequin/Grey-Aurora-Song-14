@@ -46,9 +46,125 @@
   components:
   - type: Armor
     modifiers:
-      coefficients: # additional damage types commented out but left there to show what should be expected at this tier and class of armour
+      coefficients:
         Blunt: 0.8
         Slash: 0.8
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacTierThree
+  suffix: T3 Non Vac
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacTierFour
+  suffix: T4 Non Vac
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacTierFive
+  suffix: T5 Non Vac
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacTierSix
+  suffix: T6 Non Vac
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 4
+        Slash: 4
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCivilWearTierOne
+  suffix: T1 Non Vac Civilian
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: Tag
+    tags:
+    - ArmourNonVacCivilwearTierOne
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCivilWearTierTwo
+  suffix: T2 Non Vac Civilian
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+  - type: Tag
+    tags:
+    - ArmourNonVacCivilwearTierTwo
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCivilWearTierThree
+  suffix: T3 Non Vac Civilian
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.85
+        Blunt: 0.9
+  - type: Tag
+    tags:
+    - ArmourNonVacCivilwearTierThree
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCivilWearTierFour # Realistically this is the highest tier of protective civilwear, anything more protective was designed for protection
+  suffix: T4 Non Vac Civilian
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+      coefficients:
+        Slash: 0.8
+        Blunt: 0.85
+  - type: Tag
+    tags:
+    - ArmourNonVacCivilwearTierFour
+
 #endregion NonVac armour tiers
 
 #region SoftSuit armour tiers
@@ -121,6 +237,17 @@
   parent: [ASArmourNonVacTierTwo, ClothingOuterBaseMedium]
   name: T2 test vest
   description: A test vest with Tier Two armor values.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+
+- type: entity
+  id: exampleNonVacT5
+  parent: [ASArmourNonVacTierFive, ClothingOuterBaseMedium]
+  name: T5 test vest
+  description: A test vest with Tier Five armor values.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/security.rsi

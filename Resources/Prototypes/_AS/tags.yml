@@ -120,6 +120,29 @@
   id: License
 #endregion
 
+#region armour tiers
+- type: Tag
+  id: ArmourNonVacCivilwearTierOne
+
+- type: Tag
+  id: ArmourNonVacCivilwearTierTwo
+
+- type: Tag
+  id: ArmourNonVacCivilwearTierThree
+
+- type: Tag
+  id: ArmourNonVacCivilwearTierFour
+
+- type: Tag
+  id: ArmourNonVacCivilwearTierFive
+
+- type: Tag
+  id: ArmourNonVacCivilwearTierSix
+  # This set of tags are examples for how I'd organise the actual tags for the armour
+  # overhaul, I doubt I'll actually end up with six tiers of civilian wear, since this is only meant to cover
+  # armour, not every clothing item in the game, and there's very little civilian clothing that will also have protective properties of considerable merit
+#endregion
+
 #region Power Cells
 - type: Tag
   id: PowerCellMedium

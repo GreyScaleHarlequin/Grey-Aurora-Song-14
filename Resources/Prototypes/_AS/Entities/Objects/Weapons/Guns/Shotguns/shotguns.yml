@@ -25,7 +25,7 @@
   parent: [ BaseC2ContrabandUnredeemable, NFBaseWeaponShotgunChamber12g, NFBaseWeaponFrameShotgunNanotrasen ]
   name: Bailiff
   description: |-
-    A tube-fed shotgun with full-auto capacity. The commisoner's trusty longarm, It always finds its way back to its true master.
+    A tube-fed shotgun with full-auto capacity. The commissioner's trusty long-arm, It always finds its way back to its true master.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/Bailiff.rsi
