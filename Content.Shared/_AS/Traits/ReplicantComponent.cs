@@ -15,5 +15,5 @@ public sealed partial class ReplicantComponent : Component
     /// VDS - The reagent that replaces the synth's blood
     /// </summary>
     [DataField]
-    public Solution OxidantReagent = new([new("Oxidant", 300)]);
+    public Solution OxidantReagent = new([new("Oxidant", 600)]); // Aurora's Song | changed from 300 to 600 due to metabolism and bloodstream changes from upstream
 }
