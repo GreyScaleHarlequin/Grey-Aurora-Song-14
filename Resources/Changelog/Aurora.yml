@@ -1903,3 +1903,19 @@ Entries:
   id: 9596
   time: '2026-07-07T07:07:57.0000000+00:00'
   url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1222
+- author: GreyScaleHarlequin
+  changes:
+    - type: Fix
+      message: Syndicate laser turrets now take damage again, whoops.
+  id: 9597
+  time: '2026-07-09T20:24:50.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1231
+- author: SolStar2
+  changes:
+    - type: Tweak
+      message: Replaced notekeeper with a new and improved note keeping app, NeoNote.
+    - type: Add
+      message: Added persistence to NeoNote!
+  id: 9598
+  time: '2026-07-10T22:51:33.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1200
