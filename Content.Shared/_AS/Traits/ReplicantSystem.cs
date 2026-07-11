@@ -8,11 +8,11 @@ namespace Content.Shared._AS.Traits;
 
 public sealed partial class ReplicantSystem : EntitySystem
 {
+    private static readonly ProtoId<TypingIndicatorPrototype> TypingIndicator = "robot";
+//    private static readonly ProtoId<ReagentPrototype> Blood = "Oxidant"; // VDS - use solution in component instead.
+
     [Dependency] private SharedBloodstreamSystem _bloodSystem = default!;
     [Dependency] private SharedTypingIndicatorSystem _typingIndicator = default!;
-
-    private static readonly ProtoId<TypingIndicatorPrototype> TypingIndicator = "robot";
-
     public override void Initialize()
     {
         base.Initialize();
