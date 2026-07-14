@@ -121,6 +121,7 @@
 #endregion
 
 #region armour tiers
+# Nonvac Civilwears
 - type: Tag
   id: ArmourNonVacCivilwearTierOne
 
@@ -141,6 +142,36 @@
   # This set of tags are examples for how I'd organise the actual tags for the armour
   # overhaul, I doubt I'll actually end up with six tiers of civilian wear, since this is only meant to cover
   # armour, not every clothing item in the game, and there's very little civilian clothing that will also have protective properties of considerable merit
+# Nonvac Low Profile
+- type: Tag
+  id: ArmourNonVacLowProfileTierOne
+
+- type: Tag
+  id: ArmourNonVacLowProfileTierTwo
+
+- type: Tag
+  id: ArmourNonVacLowProfileTierThree
+
+- type: Tag
+  id: ArmourNonVacLowProfileTierFour
+
+- type: Tag
+  id: ArmourNonVacLowProfileTierFive
+# Nonvac Combat Kit
+- type: Tag
+  id: ArmourNonVacCombatKitTierOne
+
+- type: Tag
+  id: ArmourNonVacCombatKitTierTwo
+
+- type: Tag
+  id: ArmourNonVacCombatKitTierThree
+
+- type: Tag
+  id: ArmourNonVacCombatKitTierFour
+
+- type: Tag
+  id: ArmourNonVacCombatKitTierFive
 #endregion
 
 #region Power Cells

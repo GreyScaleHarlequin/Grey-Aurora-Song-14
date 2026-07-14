@@ -23,94 +23,13 @@
 # - Tiers should have a general baseline of performance(probably commented rather than preset, since you can't remove components from children)
 # - Tiers determine how rare something should be in spawning
 
-#region NonVac armour tiers
-- type: entity
-  abstract: true
-  id: ASArmourNonVacTierOne # Low profile civilian protection, like duraweave jackets
-  suffix: T1 Non Vac
-  components:
-  - type: Armor
-    modifiers:
-      coefficients: # additional damage types commented out but left there to show what should be expected at this tier and class of armour
-        Blunt: 0.9
-        Slash: 0.9
-#        Piercing: 0.9
-#        Heat: 0.9
-#        Radiation: 0.9
-#        Caustic: 0.9
+# region NonVac armour tiers and classes
 
+# NonVac Civilwear tiers | items not designed to be protective in a combat context, but happen to provide some by nature of materials.
+# These should not have any combat oriented Special Abilities, and in fact only Tier 4 should have a special ability at all
 - type: entity
   abstract: true
-  id: ASArmourNonVacTierTwo # Non-concealable civilian protection, light kevlar and the like
-  suffix: T2 Non Vac
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-
-- type: entity
-  abstract: true
-  id: ASArmourNonVacTierThree
-  suffix: T3 Non Vac
-  components:
-  - type: Armor
-    modifiers:
-      flatReductions:
-        Blunt: 1
-        Slash: 1
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-
-- type: entity
-  abstract: true
-  id: ASArmourNonVacTierFour
-  suffix: T4 Non Vac
-  components:
-  - type: Armor
-    modifiers:
-      flatReductions:
-        Blunt: 2
-        Slash: 2
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-
-- type: entity
-  abstract: true
-  id: ASArmourNonVacTierFive
-  suffix: T5 Non Vac
-  components:
-  - type: Armor
-    modifiers:
-      flatReductions:
-        Blunt: 3
-        Slash: 3
-        Piercing: 3
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-
-- type: entity
-  abstract: true
-  id: ASArmourNonVacTierSix
-  suffix: T6 Non Vac
-  components:
-  - type: Armor
-    modifiers:
-      flatReductions:
-        Blunt: 4
-        Slash: 4
-      coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-
-- type: entity
-  abstract: true
-  id: ASArmourNonVacCivilWearTierOne
+  id: ASArmourNonVacCivilWearT1 # the kind of protection your hoodie gives you in a knife fight
   suffix: T1 Non Vac Civilian
   components:
   - type: Armor
@@ -123,20 +42,21 @@
 
 - type: entity
   abstract: true
-  id: ASArmourNonVacCivilWearTierTwo
+  id: ASArmourNonVacCivilWearT2 # Thick winter jacket perhaps
   suffix: T2 Non Vac Civilian
   components:
   - type: Armor
     modifiers:
       coefficients:
         Slash: 0.9
+        Blunt: 0.95
   - type: Tag
     tags:
     - ArmourNonVacCivilwearTierTwo
 
 - type: entity
   abstract: true
-  id: ASArmourNonVacCivilWearTierThree
+  id: ASArmourNonVacCivilWearT3 # that cool leather jacket you saw in that one store, you remember it, yeah you do.
   suffix: T3 Non Vac Civilian
   components:
   - type: Armor
@@ -150,8 +70,8 @@
 
 - type: entity
   abstract: true
-  id: ASArmourNonVacCivilWearTierFour # Realistically this is the highest tier of protective civilwear, anything more protective was designed for protection
-  suffix: T4 Non Vac Civilian
+  id: ASArmourNonVacCivilWearT4 # Industrial wear, protective firesuits, etc.
+  suffix: T4 Non Vac Civilian # At this tier, you can give it a special ability, like inbuilt air supply or something
   components:
   - type: Armor
     modifiers:
@@ -164,8 +84,197 @@
   - type: Tag
     tags:
     - ArmourNonVacCivilwearTierFour
+#NonVac LowProfile armour tiers | this classification has more actual deliberate protection in its design, but lacks in
+# special features (due to the general low profile nature of the designs)
+- type: entity
+  abstract: true
+  id: ASArmourNonVacLowProfileT1 # reinforced vests, anti-cut fabric, etc
+  suffix: T1 Non Vac Low Profile
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+      coefficients:
+        Slash: 0.9
+        Blunt: 0.95
+  - type: Tag
+    tags:
+    - ArmourNonVacLowProfileTierOne
 
-#endregion NonVac armour tiers
+- type: entity
+  abstract: true
+  id: ASArmourNonVacLowProfileT2 # polymer plated protective kits and lightweight ceramic plate armours
+  suffix: T2 Non Vac Low Profile
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+      coefficients:
+        Slash: 0.85
+        Blunt: 0.9
+        Piercing: 0.9
+  - type: Tag
+    tags:
+    - ArmourNonVacLowProfileTierTwo
+# todo: make chainmail sleeves like used in livestock processing, make them T2 nonvac lowprofile
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacLowProfileT3 # thin steel protective plates
+  suffix: T3 Non Vac Low Profile
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+      coefficients:
+        Slash: 0.75
+        Blunt: 0.8
+        Piercing: 0.8
+  - type: Tag
+    tags:
+    - ArmourNonVacLowProfileTierThree
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacLowProfileT4 # thin plasteel and duraweave plate vests
+  suffix: T4 Non Vac Low Profile
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+      coefficients:
+        Slash: 0.7
+        Blunt: 0.7
+        Piercing: 0.7
+  - type: Tag
+    tags:
+    - ArmourNonVacLowProfileTierFour
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacLowProfileT5 # the Captain's Repeller from the NT overhaul, if that's in by now.
+  suffix: T5 Non Vac Low Profile # One special feature allowed at this tier
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+      coefficients:
+        Slash: 0.6
+        Blunt: 0.6
+        Piercing: 0.6
+  - type: Tag
+    tags:
+    - ArmourNonVacLowProfileTierFive
+
+#Nonvac Combat Kit
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCombatKitT1 # lightweight patrol vests more reliant on aramid or kevlar than steel or ceramics for protection
+  suffix: T1 Non Vac Combat Kit
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+      coefficients:
+        Slash: 0.8
+        Blunt: 0.8
+        Piercing: 0.8
+  - type: Tag
+    tags:
+    - ArmourNonVacCombatKitTierOne
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCombatKitT2 # protective kits for low intensity conflict, stopping pistol rounds
+  suffix: T2 Non Vac Combat Kit
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+      coefficients:
+        Slash: 0.75
+        Blunt: 0.75
+        Piercing: 0.75
+  - type: Tag
+    tags:
+    - ArmourNonVacCombatKitTierTwo
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCombatKitT3 # ballistic protection vests, hard plates, etc. For high intensity conflict, stopping rifle rounds
+  suffix: T3 Non Vac Combat Kit # A special ability, maybe. Low impact though, like an inbuilt light.
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+      coefficients:
+        Slash: 0.65
+        Blunt: 0.65
+        Piercing: 0.65
+  - type: Tag
+    tags:
+    - ArmourNonVacCombatKitTierThree
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCombatKitT4 # high end ballistic protection vests, hard plates, etc. More specialised
+  suffix: T4 Non Vac Combat Kit # At this tier you should give it one special ability. Perhaps a deployable helmet, unheard of on non voidsuits I know
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+      coefficients:
+        Slash: 0.5
+        Blunt: 0.5
+        Piercing: 0.5
+  - type: Tag
+    tags:
+    - ArmourNonVacCombatKitTierFour
+
+- type: entity
+  abstract: true
+  id: ASArmourNonVacCombatKitT5 # Ultraprotective kits, be they full body plating, or some kind of energy repeller sci-fi style
+  suffix: T5 Non Vac Combat Kit # Absolutely one special ability at least at this tier, possibly two.
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+      coefficients:
+        Slash: 0.4
+        Blunt: 0.4
+        Piercing: 0.4
+  - type: Tag
+    tags:
+    - ArmourNonVacCombatKitTierFive
 
 #region SoftSuit armour tiers
 - type: entity
@@ -184,6 +293,7 @@
   - typer: ClothingSpeedModifier
     sprintModifier: 0.8
 
+#endregion SoftSuit armour tiers
 - type: entity
   abstract: true
   id: ASArmourTierOne
@@ -237,17 +347,6 @@
   parent: [ASArmourNonVacTierTwo, ClothingOuterBaseMedium]
   name: T2 test vest
   description: A test vest with Tier Two armor values.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security.rsi
-
-- type: entity
-  id: exampleNonVacT5
-  parent: [ASArmourNonVacTierFive, ClothingOuterBaseMedium]
-  name: T5 test vest
-  description: A test vest with Tier Five armor values.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/security.rsi
