@@ -150,6 +150,7 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode.SpawnAsOverflow;
 
         public HumanoidCharacterProfile(
+            int? profileId, // Aurora's Song - add profile ID
             string name,
             string flavorText,
             string nsfwFlavorText,
@@ -167,6 +168,7 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
         {
+            ProfileId = profileId; // Aurora's Song - add profile ID
             Name = name;
             FlavorText = flavorText;
             NsfwFlavorText = nsfwFlavorText;
@@ -192,14 +194,15 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
-            : this(other.Name, other.FlavorText, other.NsfwFlavorText, other.CharacterConsent, other.Species, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
+            : this(other.ProfileId, other.Name, other.FlavorText, other.NsfwFlavorText, other.CharacterConsent, other.Species, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority, // Aurora's Song - add profile ID
                 jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts)
         {
         }
 
         /// <summary>Copy constructor</summary>
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
-            : this(other.Name,
+            : this(other.ProfileId, // Aurora's Song - add profile ID
+                other.Name,
                 other.FlavorText,
                 other.NsfwFlavorText,
                 other.CharacterConsent,

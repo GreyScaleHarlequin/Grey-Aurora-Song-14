@@ -826,6 +826,12 @@
   - ContractorClothingEyesGlassesCheapSunglasses
   - ContractorClothingEyesBlindfold
   - ContractorClothingEyesEyepatch
+  - ContractorClothingEyesGlassesColorfulPink # Aurora's Song - Colorful glasses
+  - ContractorClothingEyesGlassesColorfulRed # Aurora's Song - Colorful glasses
+  - ContractorClothingEyesGlassesColorfulYellow # Aurora's Song - Colorful glasses
+  - ContractorClothingEyesGlassesColorfulGreen # Aurora's Song - Colorful glasses
+  - ContractorClothingEyesGlassesColorfulBlue # Aurora's Song - Colorful glasses
+  - ContractorClothingEyesGlassesColorfulPurple # Aurora's Song - Colorful glasses
   - ContractorClothingEyesGlassesMantis  # Aurora Song - Mantis drip merge
   - ContractorClothingEyesGlassesMantisTinted  # Aurora Song - Mantis drip merge
   - ContractorClothingEyesGlassesMantisBlindfold  # Aurora Song - Mantis drip merge
@@ -928,6 +934,11 @@
   - ContractorToolboxMechanical
   - ContractorMantisMeleeCane # Aurora's Song - Mantis drip merge
   - ContractorCane
+  - ContractorOffsetCane # Aurora's Song - for mobility impaired trait
+  - ContractorOffsetCaneClown # Aurora's Song - for mobility impaired trait
+  - ContractorOffsetCaneMime # Aurora's Song - for mobility impaired trait
+  - ContractorOffsetCaneNT # Aurora's Song - for mobility impaired trait
+  - ContractorOffsetCaneWood # Aurora's Song - for mobility impaired trait
   - ContractorLGBTQHandyFlag
   - ContractorNTHandyFlag
   - ContractorBalloonNT
