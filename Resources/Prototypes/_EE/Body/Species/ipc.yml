@@ -270,10 +270,12 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Oil
-        Quantity: 300
-  - type: BlockInjection
-    #blockHypospray: true # Aurora's Song: This field is broken and thus no longer used
-    blockInjectOnProjectile: true
+        Quantity: 600
+  # Aurora's Song Edit: BlockInjection rewrite
+  - type: SpeciesBlockInjection
+    messageSelf: ipc-injector-component-blocked-user
+    messageOther: ipc-injector-component-blocked-other
+  # End Aurora's Song Edit
   - type: CanNotVomit
   # Aurora's Song End
 
@@ -282,13 +284,7 @@
   id: OrganIPC
   abstract: true
   suffix: IPC
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Oil
-          Quantity: 10
+  # Aurora's Song - Remove reagent from limbs
 
 # Aurora's Song
 - type: entity
@@ -299,7 +295,8 @@
     metabolizerTypes: [ IPC ]
   - type: MetabolizerTagWhitelist
     tags:
-    - IPC
+    - Aphrodisiac
+    - IPCCompatible
     stages: [ "Bloodstream" ]
 
 - type: entity

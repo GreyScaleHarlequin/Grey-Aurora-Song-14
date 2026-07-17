@@ -849,7 +849,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
-                       modelBuilder.Entity("Content.Server.Database.ConsentSettings", b =>
+            modelBuilder.Entity("Content.Server.Database.ConsentSettings", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1171,7 +1171,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("jsonb")
                         .HasColumnName("organ_markings");
 
-                    b.Property<int>("PreferenceId")
+                    b.Property<int?>("PreferenceId")
                         .HasColumnType("integer")
                         .HasColumnName("preference_id");
 
@@ -1299,6 +1299,166 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasIndex("ProfileId");
 
                     b.ToTable("profile_role_loadout", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordCharacter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("record_character_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AuthorCharacterId")
+                        .HasColumnType("integer")
+                        .HasColumnName("author_character_id");
+
+                    b.Property<Guid?>("AuthorUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("author_user_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("deleted");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
+
+                    b.Property<Guid?>("DeletedById")
+                        .HasColumnType("uuid")
+                        .HasColumnName("deleted_by_id");
+
+                    b.Property<bool>("Hidden")
+                        .HasColumnType("boolean")
+                        .HasColumnName("hidden");
+
+                    b.Property<int?>("LastEditId")
+                        .HasColumnType("integer")
+                        .HasColumnName("last_edit_id");
+
+                    b.Property<int>("RecordType")
+                        .HasColumnType("integer")
+                        .HasColumnName("record_type");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("integer")
+                        .HasColumnName("round_id");
+
+                    b.Property<int?>("TargetCharacterId")
+                        .HasColumnType("integer")
+                        .HasColumnName("target_character_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_record_character");
+
+                    b.HasIndex("AuthorCharacterId");
+
+                    b.HasIndex("AuthorUserId");
+
+                    b.HasIndex("DeletedById");
+
+                    b.HasIndex("LastEditId")
+                        .IsUnique();
+
+                    b.HasIndex("TargetCharacterId");
+
+                    b.HasIndex("RecordType", "TargetCharacterId", "CreatedAt")
+                        .IsDescending(false, false, true);
+
+                    b.ToTable("record_character", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordEdit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("record_edit_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AuthorCharacterId")
+                        .HasColumnType("integer")
+                        .HasColumnName("author_character_id");
+
+                    b.Property<Guid?>("AuthorUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("author_user_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("deleted");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
+
+                    b.Property<Guid?>("DeletedById")
+                        .HasColumnType("uuid")
+                        .HasColumnName("deleted_by_id");
+
+                    b.Property<string>("Field")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("field");
+
+                    b.Property<string>("NewValue")
+                        .HasColumnType("text")
+                        .HasColumnName("new_value");
+
+                    b.Property<string>("OldValue")
+                        .HasColumnType("text")
+                        .HasColumnName("old_value");
+
+                    b.Property<int>("RecordCharacterId")
+                        .HasColumnType("integer")
+                        .HasColumnName("record_character_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_record_edit");
+
+                    b.HasIndex("AuthorCharacterId");
+
+                    b.HasIndex("AuthorUserId");
+
+                    b.HasIndex("DeletedById");
+
+                    b.HasIndex("RecordCharacterId", "CreatedAt")
+                        .IsDescending(false, true);
+
+                    b.ToTable("record_edit", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordPersonalNote", b =>
+                {
+                    b.Property<int>("RecordCharacterId")
+                        .HasColumnType("integer")
+                        .HasColumnName("record_character_id");
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("body");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("title");
+
+                    b.HasKey("RecordCharacterId")
+                        .HasName("PK_record_personal_note");
+
+                    b.ToTable("record_personal_note", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
@@ -1913,16 +2073,16 @@ namespace Content.Server.Database.Migrations.Postgres
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConsentToggle", b =>
-            {
-                b.HasOne("Content.Server.Database.ConsentSettings", "ConsentSettings")
-                    .WithMany("ConsentToggles")
-                    .HasForeignKey("ConsentSettingsId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired()
-                    .HasConstraintName("FK_consent_toggle_consent_settings_consent_settings_id");
+                {
+                    b.HasOne("Content.Server.Database.ConsentSettings", "ConsentSettings")
+                        .WithMany("ConsentToggles")
+                        .HasForeignKey("ConsentSettingsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_consent_toggle_consent_settings_consent_settings_id");
 
-                b.Navigation("ConsentSettings");
-            });
+                    b.Navigation("ConsentSettings");
+                });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
@@ -1972,8 +2132,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasOne("Content.Server.Database.Preference", "Preference")
                         .WithMany("Profiles")
                         .HasForeignKey("PreferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_profile_preference_preference_id");
 
                     b.Navigation("Preference");
@@ -2013,6 +2171,87 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_profile_role_loadout_profile_profile_id");
 
                     b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordCharacter", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorCharacterId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_record_character_profile_profile_id");
+
+                    b.HasOne("Content.Server.Database.Player", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_record_character_player_player_id");
+
+                    b.HasOne("Content.Server.Database.Player", null)
+                        .WithMany()
+                        .HasForeignKey("DeletedById")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_record_character_player_player_id1");
+
+                    b.HasOne("Content.Server.Database.RecordEdit", "LastEdit")
+                        .WithOne()
+                        .HasForeignKey("Content.Server.Database.RecordCharacter", "LastEditId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasConstraintName("FK_record_character_record_edit_last_edit_id1");
+
+                    b.HasOne("Content.Server.Database.Profile", null)
+                        .WithMany()
+                        .HasForeignKey("TargetCharacterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("FK_record_character_profile_profile_id1");
+
+                    b.Navigation("LastEdit");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordEdit", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorCharacterId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_record_edit_profile_profile_id");
+
+                    b.HasOne("Content.Server.Database.Player", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_record_edit_player_player_id");
+
+                    b.HasOne("Content.Server.Database.Player", null)
+                        .WithMany()
+                        .HasForeignKey("DeletedById")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_record_edit_player_player_id1");
+
+                    b.HasOne("Content.Server.Database.RecordCharacter", "RecordCharacter")
+                        .WithMany("RecordEdits")
+                        .HasForeignKey("RecordCharacterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_record_edit_record_character_record_character_id");
+
+                    b.Navigation("RecordCharacter");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordPersonalNote", b =>
+                {
+                    b.HasOne("Content.Server.Database.RecordCharacter", "RecordCharacter")
+                        .WithOne("RecordPersonalNote")
+                        .HasForeignKey("Content.Server.Database.RecordPersonalNote", "RecordCharacterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_record_personal_note_record_character_record_character_id");
+
+                    b.Navigation("RecordCharacter");
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
@@ -2136,14 +2375,14 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Unban");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.ConsentSettings", b =>
-            {
-                b.Navigation("ConsentToggles");
-            });
-
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Navigation("BanHits");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ConsentSettings", b =>
+                {
+                    b.Navigation("ConsentToggles");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
@@ -2205,6 +2444,13 @@ namespace Content.Server.Database.Migrations.Postgres
             modelBuilder.Entity("Content.Server.Database.ProfileRoleLoadout", b =>
                 {
                     b.Navigation("Groups");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecordCharacter", b =>
+                {
+                    b.Navigation("RecordEdits");
+
+                    b.Navigation("RecordPersonalNote");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Round", b =>

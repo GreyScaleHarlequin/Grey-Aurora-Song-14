@@ -37,13 +37,45 @@
   - MantisMeleeCane
 # Aurora Song- Mantis drip merge end
 
-#T2
 - type: loadout
   id: ContractorCane
-  price: 1000
+  price: 100 # Aurora's Song - 1000 > 100 accessibility items should not be 1 squilliam dollars
   inhand:
   - Cane
 
+# Aurora's Song Start - added offset canes to loadouts
+- type: loadout
+  id: ContractorOffsetCane
+  price: 100
+  inhand:
+  - OffsetCane
+
+- type: loadout
+  id: ContractorOffsetCaneClown
+  price: 100
+  inhand:
+  - OffsetCaneClown
+
+- type: loadout
+  id: ContractorOffsetCaneMime
+  price: 100
+  inhand:
+  - OffsetCaneMime
+
+- type: loadout
+  id: ContractorOffsetCaneNT
+  price: 100
+  inhand:
+  - OffsetCaneNT
+
+- type: loadout
+  id: ContractorOffsetCaneWood
+  price: 100
+  inhand:
+  - OffsetCaneWood  
+# Aurora's Song End - added offset canes
+
+# T2
 - type: loadout
   id: ContractorLGBTQHandyFlag
   effects:
