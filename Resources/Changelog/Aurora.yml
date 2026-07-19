@@ -2074,3 +2074,14 @@ Entries:
   id: 9619
   time: '2026-07-19T04:22:29.0000000+00:00'
   url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1267
+- author: BudaLope
+  changes:
+    - type: Tweak
+      message: Height and Width sliders now display real height values
+    - type: Add
+      message: lightweight and heavyweight trait which alters player density by 30%
+    - type: Remove
+      message: tall and short trait are no longer
+  id: 9620
+  time: '2026-07-19T05:22:57.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1266
