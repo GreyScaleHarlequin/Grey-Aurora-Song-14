@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingBackpackDuffel
-  id: ClothingBackpackDuffelCommandveteran
+  id: ClothingBackpackDuffelCommVet
   name: command veteran duffel bag
   description: A sleek duffel bag, earned through a long career as command.
   components:
