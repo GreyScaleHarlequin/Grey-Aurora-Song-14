@@ -10,6 +10,9 @@ trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself
 trait-milbrat-name = Military Jargon
 trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.
 
+trait-emphasis-accent-name = Emphasized speech
+trait-emphasis-accent-desc = You Tend To Place Equal Emphasis On Every Word.
+
 trait-silicon-synth-name = Silicon speech synthesizer
 trait-silicon-synth-desc = Your chassis uses a speech synthesizer typically used by most silicons.
 
