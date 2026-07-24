@@ -37,7 +37,7 @@
 
 - type: entity
   id: ASBaseMagazineEnblocRifle30Long
-  parent: NFBaseMagazineRifle30
+  parent: [NFBaseMagazineRifle30, RecyclableItemSteelTiny]
   name: en-bloc clip (.30 long rifle)
   abstract: true
   components:
@@ -79,7 +79,7 @@
 - type: entity
   id: ASMagazineEnblocRifle30LongEmpty
   name: en-bloc clip (.30 rifle, any)
-  parent: ASBaseMagazineEnblocRifle30Long
+  parent: [ASBaseMagazineEnblocRifle30Long, RecyclableItemSteelTiny]
   suffix: empty
   components:
   - type: BallisticAmmoProvider
@@ -96,7 +96,7 @@
 - type: entity
   id: ASMagazineEnblocRifle30Long
   name: en-bloc clip (.30 Long rifle)
-  parent: ASBaseMagazineEnblocRifle30Long
+  parent: [ASBaseMagazineEnblocRifle30Long, RecyclableItemSteelTiny]
   components:
   - type: BallisticAmmoProvider
     proto: ASCartridgeRifle30Long
