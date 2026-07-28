@@ -26,4 +26,4 @@
     turnInValues:
     allowedDepartments: [ Security, Command ]
   - type: FactionClothing
-    faction: ColonialCommandClothing
+    faction: AuroranColony

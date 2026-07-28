@@ -1,21 +1,40 @@
 - type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesCaptainvisor
+  name: captain's visor
+  description: A sleek visor that provides flash immunity.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/captainvisor.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/captainvisor.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
   parent: [ ClothingEyesBase ] # Aurora's Song - remove BaseLensSlot as it doesnt exist here
   id: ClothingEyesGlassesColorfulBase
   name: colorful glasses
   abstract: true
   description: Colorful glasses for your face.
   components:
-    - type: Sprite
-      sprite: _Impstation/Clothing/Eyes/Glasses/colorfulglasses/pink.rsi
-    - type: Clothing
-      sprite: _Impstation/Clothing/Eyes/Glasses/colorfulglasses/pink.rsi
-      slots:
-      - HEAD
-      - EYES
-    - type: Tag
-      tags:
-      - WhitelistChameleon
-      - DroneUsable
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Glasses/colorfulglasses/pink.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Glasses/colorfulglasses/pink.rsi
+    slots:
+    - HEAD
+    - EYES
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - DroneUsable
 
 - type: entity
   parent: ClothingEyesGlassesColorfulBase
@@ -44,6 +63,7 @@
     sprite: _Impstation/Clothing/Eyes/Glasses/colorfulglasses/blue.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Glasses/colorfulglasses/blue.rsi
+
 
 - type: entity
   parent: ClothingEyesGlassesColorfulBase

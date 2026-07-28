@@ -259,7 +259,7 @@
       medkit: !type:ContainerSlot { }
 
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingBeltMilitaryWebbing ]
+  parent: [ BaseC3NanoTrasenContrabandLowValue, ClothingBeltMilitaryWebbing ] # Aurora's Song | added NT Contraband parent
   id: ClothingBeltMilitaryWebbingERT
   name: ERT chest rig
   description: A set of tactical webbing worn by Emergency Response Team operatives.

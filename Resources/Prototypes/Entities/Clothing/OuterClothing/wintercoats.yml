@@ -353,7 +353,7 @@
 
 ##########################################################
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseC3NanoTrasenContrabandLowValue, ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable] # Aurora's Song | BaseSecurityCommandContraband<BaseC3NanoTrasenContrabandLowValue
   id: ClothingOuterWinterHoS
   name: head of security's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
@@ -372,7 +372,7 @@
 ##########################################################
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterWinterCoatToggleable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseC3NanoTrasenContrabandLowValue, ClothingOuterWinterCoatToggleable] # Aurora's Song | BaseSecurityCommandContraband<BaseC3NanoTrasenContrabandLowValue
   id: ClothingOuterWinterHoSUnarmored
   name: head of security's winter coat
   description: A sturdy coat, a warm coat, but not an armored coat.
@@ -717,7 +717,7 @@
 
 ################################################################
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseC3NanoTrasenContrabandLowValue, ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable] # Aurora's Song | BaseSecurityContraband<BaseC3NanoTrasenContrabandLowValue
   id: ClothingOuterWinterWarden
   name: warden's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
@@ -736,7 +736,7 @@
 ################################################################
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterWinterCoatToggleable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseC3NanoTrasenContrabandLowValue, ClothingOuterWinterCoatToggleable] # Aurora's Song | BaseSecurityContraband<BaseC3NanoTrasenContrabandLowValue
   id: ClothingOuterWinterWardenUnarmored
   name: warden's winter coat
   description: A sturdy coat, a warm coat, but not an armored coat.

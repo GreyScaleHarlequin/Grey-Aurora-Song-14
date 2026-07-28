@@ -366,7 +366,7 @@ GrenadeBlast: NFGrenadeBlast
 GrenadeEMP: NFGrenadeEMP
 GrenadeFlash: NFGrenadeFlash
 GrenadeFrag: NFGrenadeFrag
-Kardashev-MosinNonlethal: NFWeaponRifleBarlowsBoltLessLethal
+Kardashev-MosinNonlethal: ASWeaponRifleMosinBolt # Aurora's Song | just have the lethal version, I'm lazy
 MagazineBoxAntiMateriel: NFAmmunitionBoxRifle60
 MagazineBoxCaselessRifle: null
 MagazineBoxCaselessRiflePractice: null
@@ -571,9 +571,9 @@ WeaponShotgunKammererNonlethal: NFWeaponShotgunKammererLessLethal
 WeaponShotgunSawn: NFWeaponShotgunSawn
 WeaponShotgunSawnEmpty: NFWeaponShotgunSawnEmpty
 WeaponShotgunSawnNonlethal: NFWeaponShotgunSawnLessLethal
-WeaponSniperCeremonial: NFWeaponRifleCeremonial
+WeaponSniperCeremonial: ASWeaponRifleGarandCeremonial # Aurora's Song | Ceremonial rifle reworked
 WeaponSniperHristov: NFWeaponRifleSniperHristov
-WeaponSniperMosin: NFWeaponRifleBarlowsBolt
+WeaponSniperMosin: ASWeaponRifleMosinBolt # Aurora's Song | Mosin refactored to be the mosin again, and use a magaazine
 WeaponSniperRepeater: NFWeaponRifleRepeater
 WeaponSubMachineGunAtreides: NFWeaponSubMachineGunAtreides
 WeaponSubMachineGunC20r: NFWeaponSubMachineGunC20r

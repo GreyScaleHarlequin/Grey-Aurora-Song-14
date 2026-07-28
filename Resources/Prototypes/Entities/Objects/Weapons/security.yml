@@ -90,6 +90,9 @@
     guides:
     - Security
     # - Antagonists # Frontier: guidebook entry removed
+  - type: Tag
+    tags:
+    - Baton
 
 - type: entity
   name: truncheon

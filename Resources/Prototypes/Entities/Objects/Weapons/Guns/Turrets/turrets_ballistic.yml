@@ -65,6 +65,16 @@
     factions:
     - NanoTrasen
 
+# Aurora's Song Start | Ballistic turret for NT UIV
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretNanoTrasenRogue
+  suffix: NanoTrasen, Rogue
+  components:
+  - type: NpcFactionMember
+    factions:
+    - ASNanoTrasenRogue
+
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: WeaponTurretHostile

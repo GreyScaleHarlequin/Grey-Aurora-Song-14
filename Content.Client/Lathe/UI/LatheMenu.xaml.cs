@@ -139,12 +139,16 @@ public sealed partial class LatheMenu : FancyWindow
         int idx = 0;
         foreach (var prototype in sortedRecipesToShow)
         {
-            var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
-            var tooltipFunction = () => GenerateTooltipText(prototype);
+            //var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
+            // Coyote: Use custom availability check that includes the buffer
+            var canProduce = CanProduceWithBuffer(prototype, quantity);
+            var tooltipFunction = () => GenerateTooltipText(prototype, _bufferAmount);
 
             if (idx >= oldChildCount)
             {
-                var control = new RecipeControl(_lathe, prototype, tooltipFunction, canProduce, GetRecipeDisplayControl(prototype));
+                //var control = new RecipeControl(_lathe, prototype, tooltipFunction, canProduce, GetRecipeDisplayControl(prototype));
+                // Coyote: Pass the current buffer amount to the tooltip generator
+                var control = new RecipeControl(_lathe, prototype, () => GenerateTooltipText(prototype, _bufferAmount), canProduce, GetRecipeDisplayControl(prototype));
                 control.OnButtonPressed += s =>
                 {
                     if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
@@ -178,7 +182,7 @@ public sealed partial class LatheMenu : FancyWindow
         }
     }
 
-    private string GenerateTooltipText(LatheRecipePrototype prototype)
+    private string GenerateTooltipText(LatheRecipePrototype prototype, int? bufferAmount) // Coyote: Modified tooltip generator – accepts buffer amount
     {
         StringBuilder sb = new();
         var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).FinalMaterialUseMultiplier; // Frontier: MaterialUseMultiplier<FinalMaterialUseMultiplier
@@ -194,7 +198,8 @@ public sealed partial class LatheMenu : FancyWindow
             var unit = Loc.GetString(proto.Unit);
             var sheets = adjustedAmount / (float)sheetVolume;
 
-            var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
+            //var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
+            int availableAmount = GetTotalMaterialAmount(id, bufferAmount); // Coyote: Get total available amount (including buffer for biomass)
             var missingAmount = Math.Max(0, adjustedAmount - availableAmount);
             var missingSheets = missingAmount / (float)sheetVolume;
 

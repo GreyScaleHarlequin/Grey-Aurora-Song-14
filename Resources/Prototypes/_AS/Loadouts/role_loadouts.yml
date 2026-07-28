@@ -1,3 +1,33 @@
+#region Civilian
+
+- type: roleLoadout
+  id: JobOffDutyOfficer
+  groups:
+  - OffDutyOfficerHead
+  - OffDutyOfficerNeck
+  - OffDutyOfficerJumpsuit
+  - OffDutyOfficerGloves
+  - OffDutyOfficerBackpack
+  - OffDutyOfficerOuterClothing
+  - SLEForcedOuterClothing
+  - OffDutyOfficerShoes
+  - OffDutyOfficerFace
+  - OffDutyOfficerGlasses
+  - OffDutyOfficerBelt
+  - OffDutyOfficerEars
+  - SLEBoxSurvival
+  - OffDutyOfficerPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorEncryptionKey
+  - OffDutyOfficerBackpackItems
+  - ContractorHandItems
+  - MercenaryLongarm
+  - MercenarySidearm
+  - MercenaryAmmo
+  - SLESpeciesSpecific
+
 #region Medical
 
 - type: roleLoadout
@@ -273,7 +303,7 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - SergeantBackpackItems
+  - CommissionerBackpackItems
   - ContractorHandItems
   - SLESpeciesSpecific
 
@@ -320,7 +350,7 @@
   - ContractorFace
   - SiteManagerGlasses
   - SiteManagerPDA
-  - ContractorBackpackItems
+  - SiteManagerBackpackItems # Apparently this doubles the backpack items for Site Managers. I do not see any other "BackpackItems" in this list, so how in the FUCK did that happen?!
   - ContractorBoxSurvival
   - ContractorWallet
   - ContractorCartridge

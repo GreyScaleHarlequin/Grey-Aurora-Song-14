@@ -134,7 +134,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingOuterArmorBaseCarapace, BaseCentcommContraband]
+  parent: [ClothingOuterArmorBaseCarapace, BaseC3NanoTrasenContrabandLowValue] # Aurora's Song - BaseCentcommContraband<BaseC3NanoTrasenContrabandLowValue
   id: ClothingOuterArmorCentcommCarapace
   name: centcomm carapace
   description: An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to centcomm officials and agents.

@@ -1186,7 +1186,7 @@
   components:
   - type: Mail
     contents:
-    - id: NFWeaponRifleBarlowsBoltLessLethal # Frontier: WeaponSniperMosin<NFWeaponRifleBarlowsBolt
+    - id: ASWeaponRifleMosinBolt # Aurora's Song | restored lethal mail mosin, changed to AS version
     - id: ClothingHeadHatUshanka
     - id: SyndicateWhistle
     - id: PaperMailNTConscript
