@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: BaseMagazineShotgunLever
   name: "magazine (8 gauge)"
-  parent: [BaseItem]
+  parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
   - type: Tag
@@ -35,7 +35,7 @@
 - type: entity
   id: MagazineShotgunLever
   name: en-bloc (8 gauge)
-  parent: [BaseMagazineShotgunLever, RecyclableItemSteelTiny]
+  parent: BaseMagazineShotgunLever
   components:
   - type: Tag
     tags:
@@ -46,7 +46,7 @@
 - type: entity
   id: MagazineShotgunLeverEmpty
   name: en-bloc (8 gauge, any)
-  parent: [MagazineShotgunLever, RecyclableItemSteelTiny]
+  parent: MagazineShotgunLever
   suffix: Empty
   components:
   - type: BallisticAmmoProvider
